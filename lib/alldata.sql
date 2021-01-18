@@ -1,3 +1,42 @@
+
+CREATE TABLE series (
+  id INTEGER PRIMARY KEY,
+  title TEXT,
+  author_id INTEGER,
+  subgenre_id INTEGER
+);
+
+CREATE TABLE subgenres (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE authors (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE books (
+    id INTEGER PRIMARY KEY, 
+    title TEXT, 
+    year INTEGER,
+    series_id INTEGER
+);
+
+CREATE TABLE characters (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    motto TEXT,
+    species TEXT,
+    author_id INTEGER
+);
+
+CREATE TABLE character_books (
+    id INTEGER PRIMARY KEY,
+    book_id INTEGER,
+    character_id INTEGER
+);
+
 INSERT INTO series (id, title, author_id, subgenre_id) 
 VALUES (1, "The Dark Tower", 1, 1), (2, "The Under", 2, 2);
 
@@ -44,3 +83,8 @@ VALUES
 (14, 6, 8),
 (15, 6, 5),
 (16, 4, 6);
+
+UPDATE characters SET species = "Martian" WHERE species = "Unknown";
+.headers on
+.mode column
+.width auto
